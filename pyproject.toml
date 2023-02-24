@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "telegram-anki2"
+version = "0.1.0"
+description = "Телеграм-бот для занятий с Anki карточками"
+authors = ["neverdieone <altiore@mail.ru>"]
+readme = "README.md"
+packages = [{include = "telegram_anki2"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-telegram-bot = {extras = ["job-queue"], version = "^20.1"}
+environs = "^9.5.0"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

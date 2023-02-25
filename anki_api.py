@@ -115,10 +115,10 @@ class AnkiCollection:
             ]
         
     def get_current_deck(self) -> DeckDict:
-        """Return current deck ID.
+        """Get current deck as dick.
 
         Returns:
-            int: Current deck ID.
+            DeckDict: Dict representation of deck.
         """
         with self.collection() as coll:
             return coll.decks.current()

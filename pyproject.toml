@@ -9,7 +9,8 @@ packages = [{include = "telegram_anki2"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 python-telegram-bot = {extras = ["job-queue"], version = "^20.1"}
-environs = "^9.5.0"
+anki = "^2.1.60"
+pydantic = {extras = ["dotenv"], version = "^1.10.5"}
 
 
 [tool.poetry.group.dev.dependencies]
@@ -18,3 +19,7 @@ mypy = "^1.0.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.mypy]
+strict_optional=false

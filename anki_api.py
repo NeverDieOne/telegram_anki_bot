@@ -181,3 +181,20 @@ class AnkiCollection:
             for ease in range(1, 5):
                 res.append(coll.sched.nextIvlStr(card, ease).strip())
             return res
+        
+    def sync_collection(self, username: str, password: str) -> None:
+        """Synchronize collections between bot and anki server.
+
+        Args:
+            username (str): Username from anki server.
+            password (str): Password from anki server.
+        """
+        with self.collection() as coll:
+            auth = coll.sync_login(
+                username=username, password=password, endpoint=None
+            )
+            coll.close_for_full_sync()
+            res = coll.sync_collection(auth)
+            auth.endpoint = res.new_endpoint
+            coll.full_download(auth)
+            coll.full_upload(auth)
